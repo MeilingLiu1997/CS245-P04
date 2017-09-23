@@ -1,4 +1,8 @@
-
+/**
+ * 
+ * @author liumeiling
+ *
+ */
 public class Practice4Test {
 	
 	protected Queue queue;
@@ -26,7 +30,11 @@ public class Practice4Test {
 	
 	public boolean isPalindrome(String item) {
 		clearData();
+		item = item.toLowerCase();
+		item = item.replaceAll("\\s+","");
+		item = item.replaceAll("\\W+","");
 		for (int i = 0; i < item.length(); i++) {
+			
 			stack.push(item.substring(i, i+1));
 			queue.enqueue(item.substring(i, i+1));
 		}
@@ -84,7 +92,7 @@ public class Practice4Test {
 			}
 			boolean emptiedEarly = false;
 			for (int i = 0; i < size_of_test; i++) {
-				if ( queue.empty() || stack.empty()) {
+				if ( queue.empty() || stack.empty()) {					
 					emptiedEarly = true;
 				}
 				queue.dequeue();
